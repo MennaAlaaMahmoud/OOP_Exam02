@@ -174,7 +174,16 @@ namespace OOP_Exam02
                     Console.WriteLine("Enter Body:");
                     string body = Console.ReadLine();
 
-                   
+
+                    
+                    int questionType;
+                    do
+                    {
+                        Console.Write("Choose Question Type (1. True/False *_* , 2. MCQ *_* ) ");
+                    } while (!int.TryParse(Console.ReadLine(), out questionType) || (questionType != 1 && questionType != 2));
+
+
+
                     int mark = (examType == 1) ? 1 : 2; // Final Exam (1 mark), Practical Exam (2 marks)
 
                     Console.WriteLine("Enter Number of Answers:");

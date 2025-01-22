@@ -73,6 +73,30 @@ namespace OOP_Exam02
 
                     // marks to total
                     totalMarks += question.Mark;
+
+
+                    if (question != null)
+                    {
+                        question.Show();
+                        int userAnswer;
+                        do
+                        {
+                            Console.Write("Your Answer (Enter the answer ID): ");
+                        } while (!int.TryParse(Console.ReadLine(), out userAnswer));
+
+                        if (question is TrueFalseQuestion tfQuestion)
+                        {
+                            bool isCorrect = tfQuestion.CheckAnswer(userAnswer);
+                            Console.WriteLine(isCorrect ? "Correct!" : $"Wrong! The correct answer is {tfQuestion.CorrectAnswer.AnswerText}");
+                        }
+                        else if (question is MCQQuestion mcqQuestion)
+                        {
+                            bool isCorrect = mcqQuestion.Answers[userAnswer - 1] == mcqQuestion.CorrectAnswer;
+                            Console.WriteLine(isCorrect ? "Correct!" : $"Wrong! The correct answer is {mcqQuestion.CorrectAnswer.AnswerText}");
+                        }
+                        Console.WriteLine();
+                    }
+
                 }
             }
 

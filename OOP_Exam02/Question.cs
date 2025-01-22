@@ -41,7 +41,16 @@ namespace OOP_Exam02
             CorrectAnswer = correctAnswer;
         }
 
-
-
-    }
+        public virtual void Show()
+        {
+            Console.WriteLine($"Q: {Header} - {Body}");
+            foreach (var answer in Answers)
+            {
+                if (answer != null)
+                {
+                    Console.WriteLine($"{answer.AnswerId}: {answer.AnswerText}");
+                }
+            }
+        }
+    }    
 }

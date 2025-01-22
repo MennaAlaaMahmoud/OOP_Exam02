@@ -10,6 +10,12 @@ namespace OOP_Exam02
     {
         public MCQQuestion(string header, string body, int mark, int answerCapacity) : base(header, body, mark, answerCapacity)
         {
+
+        }
+
+        public override void Show()
+        {
+            base.Show();
         }
 
 
