@@ -99,23 +99,20 @@ namespace OOP_Exam02
 
                 }
             }
-
-          
-            Console.WriteLine($"\nTotal Marks: {totalMarks}");
-
-           
             Console.WriteLine("\nPractical Exam with Correct Answers:");
             foreach (var question in Questions)
             {
-                if (question != null)
+                if (question != null && question is MCQQuestion) // Show only MCQ questions
                 {
                     Console.WriteLine($"Question: {question.Header} (Mark: {question.Mark})");
-                    Console.WriteLine($"Body: {question.Body}");
-                    Console.WriteLine($"Correct Answer: {question.CorrectAnswer.AnswerText}");
+                    question.Show();
+                    totalMarks += question.Mark;
                 }
             }
 
-    }
+            Console.WriteLine($"\nTotal Marks: {totalMarks}");
+
+        }
 
     }
 }

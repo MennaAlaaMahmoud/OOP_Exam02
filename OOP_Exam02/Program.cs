@@ -144,7 +144,7 @@ namespace OOP_Exam02
                 }
                 Console.Clear();
 
-                Subject subject = new Subject(1, "Mathematics");
+                Subject subject = new Subject(1, "History subject");
                 //  Exam exam;
                 // إنشاء الامتحان بناءً على الاختيار
 
@@ -175,12 +175,21 @@ namespace OOP_Exam02
                     string body = Console.ReadLine();
 
 
-                    
+
                     int questionType;
                     do
                     {
-                        Console.Write("Choose Question Type (1. True/False *_* , 2. MCQ *_* ) ");
-                    } while (!int.TryParse(Console.ReadLine(), out questionType) || (questionType != 1 && questionType != 2));
+                        if (examType == 2) 
+                        {
+                            Console.Write("This is a Practical Exam (MCQ) *_* ");
+                            questionType = 2; 
+                        }
+                        else
+                        {
+                            Console.Write("Choose Question Type (1. True/False, 2. MCQ): ");
+                            int.TryParse(Console.ReadLine(), out questionType);
+                        }
+                    } while (questionType != 1 && questionType != 2);
 
 
 
